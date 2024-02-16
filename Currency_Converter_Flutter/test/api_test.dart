@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 void main() {
   group("APi testing the api used ", () { 
 
-  test('Positive API test: Successful conversion', () async {
+  test('positive test: Successful ', () async {
     final response = await http.get(Uri.parse('https://open.er-api.com/v6/latest/USD'));
   
     expect(response.statusCode, 200);
@@ -14,7 +14,7 @@ void main() {
     expect(responseBody.containsKey('rates'), true);
   });
 
-  test('Negative API test: Error fetching data', () async {
+  test('negative test: Error fetching data', () async {
     final response = await http.get(Uri.parse('https://open.er-api.com/v6/kaesdfw/efd'));
     expect(response.statusCode, isNot(200));
     

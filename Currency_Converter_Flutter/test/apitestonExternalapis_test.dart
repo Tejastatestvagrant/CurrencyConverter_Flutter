@@ -5,7 +5,7 @@ import 'dart:convert';
 
 void main() {
   group('CRUD Operations on the reqres.in API', () {
-    test('Create a new user (POST)', () async {
+    test('Creating a new user', () async {
       final response = await http.post(
         Uri.parse('https://reqres.in/api/users'),
         headers: <String, String>{
@@ -21,7 +21,7 @@ void main() {
       expect(response.statusCode, lessThan(300));
     });
 
-    test('Retrieve user information (GET)', () async {
+    test('getting  user information (GET)', () async {
       const userId = 2; 
       final response = await http.get(Uri.parse('https://reqres.in/api/users/$userId'));
       final responseBody = json.decode(response.body);
@@ -32,7 +32,7 @@ void main() {
       expect(response.statusCode, lessThan(300));
     });
 
-    test('Update user information', () async {
+    test('Updating  user information', () async {
       const  userId = 2; 
       final response = await http.put(
         Uri.parse('https://reqres.in/api/users/$userId'),
@@ -49,7 +49,7 @@ void main() {
       expect(response.statusCode, lessThan(300));
     });
 
-    test('Delete a user', () async {
+    test('Deleting  a user', () async {
       const  userId = 2; 
       final response = await http.delete(Uri.parse('https://reqres.in/api/users/$userId'));
 
