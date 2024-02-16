@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -21,18 +22,18 @@ void main() {
     });
 
     test('Retrieve user information (GET)', () async {
-      const userId = 2; // Replace with a valid user ID
+      const userId = 2; 
       final response = await http.get(Uri.parse('https://reqres.in/api/users/$userId'));
       final responseBody = json.decode(response.body);
 
-      print(responseBody);
+      debugPrint(responseBody);
 
       expect(response.statusCode, greaterThanOrEqualTo(200));
       expect(response.statusCode, lessThan(300));
     });
 
     test('Update user information', () async {
-      final userId = 2; // Replace with a valid user ID
+      const  userId = 2; 
       final response = await http.put(
         Uri.parse('https://reqres.in/api/users/$userId'),
         headers: <String, String>{
@@ -49,7 +50,7 @@ void main() {
     });
 
     test('Delete a user', () async {
-      final userId = 2; // Replace with a valid user ID
+      const  userId = 2; 
       final response = await http.delete(Uri.parse('https://reqres.in/api/users/$userId'));
 
       expect(response.statusCode, greaterThanOrEqualTo(200));

@@ -85,7 +85,7 @@ class _CurrencyConverterState extends State<CurrencyConverter> {
   }
 
  Future<void> convertCurrency() async {
-  const  apiKey = 'c5d1b98b71e9ffac13de6aad'; // Replace with your ExchangeRate-API key
+  const  apiKey = 'c5d1b98b71e9ffac13de6aad';
   final url = 'https://open.er-api.com/v6/latest/$fromCurrency';
 
   final response = await http.get(Uri.parse(url));
