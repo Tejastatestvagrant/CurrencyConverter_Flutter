@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 void main() {
-  group('CRUD Operations on the reqres.in API', () {
+  group('CRUD Operations ', () {
     test('Creating a new user', () async {
       final response = await http.post(
         Uri.parse('https://reqres.in/api/users'),
@@ -21,13 +21,10 @@ void main() {
       expect(response.statusCode, lessThan(300));
     });
 
-    test('getting  user information (GET)', () async {
+    test('getting  user information', () async {
       const userId = 2; 
       final response = await http.get(Uri.parse('https://reqres.in/api/users/$userId'));
-      final responseBody = json.decode(response.body);
-
-      debugPrint(responseBody);
-
+     
       expect(response.statusCode, greaterThanOrEqualTo(200));
       expect(response.statusCode, lessThan(300));
     });
